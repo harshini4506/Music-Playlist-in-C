@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Music Playlist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9; /* Soft light background */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .playlist-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3436; /* Dark Gray */
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .playlist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .song:hover {
+            background-color: #dfe6e9; /* Soft hover effect */
+        }
+
+        .song-title {
+            font-size: 18px;
+            color: #2d3436; /* Dark Gray */
+            font-weight: bold;
+        }
+
+        .artist-name {
+            font-size: 14px;
+            color: #636e72; /* Medium Gray */
+        }
+
+        .play-btn {
+            background-color: #0984e3; /* Blue */
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background-color: #74b9ff; /* Light Blue */
+        }
+
+        .play-btn:focus {
+            outline: none;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .playlist-container {
+                width: 90%;
+            }
+
+            .song-title {
+                font-size: 16px;
+            }
+
+            .artist-name {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="playlist-container">
+    <h1>My Music Playlist</h1>
+    <ul class="playlist">
+        <li class="song">
+            <div>
+                <span class="song-title">Shape of You</span>
+                <br>
+                <span class="artist-name">Ed Sheeran</span>
+            </div>
+            <button class="play-btn" onclick="playSong('songs/shape_of_you.mp3')">Play</button>
+        </li>
+        <li class="song">
+            <div>
+                <span class="song-title">Blinding Lights</span>
+                <br>
+                <span class="artist-name">The Weeknd</span>
+            </div>
+            <button class="play-btn" onclick="playSong('songs/blinding_lights.mp3')">Play</button>
+        </li>
+        <li class="song">
+            <div>
+                <span class="song-title">Levitating</span>
+                <br>
+                <span class="artist-name">Dua Lipa</span>
+            </div>
+            <button class="play-btn" onclick="playSong('songs/levitating.mp3')">Play</button>
+        </li>
+        <li class="song">
+            <div>
+                <span class="song-title">Stay</span>
+                <br>
+                <span class="artist-name">The Kid LAROI, Justin Bieber</span>
+            </div>
+            <button class="play-btn" onclick="playSong('songs/stay.mp3')">Play</button>
+        </li>
+        <li class="song">
+            <div>
+                <span class="song-title">Good 4 U</span>
+                <br>
+                <span class="artist-name">Olivia Rodrigo</span>
+            </div>
+            <button class="play-btn" onclick="playSong('songs/good_4_u.mp3')">Play</button>
+        </li>
+    </ul>
+</div>
+
+<script>
+    function playSong(songFile) {
+        var audio = new Audio(songFile);
+        audio.play();
+        audio.onended = function () {
+            alert("Song has ended.");
+        };
+    }
+</script>
+
+</body>
+</html>
